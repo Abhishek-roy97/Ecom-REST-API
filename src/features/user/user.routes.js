@@ -5,9 +5,13 @@ const router = express.Router();
 
 const userController = new UserController();
 
-router.post('/signup',userController.signUp);
+router.post('/signup',(req, res)=>{
+    userController.signUp(req, res)
+});
 
-router.post('/signin',userController.signIn);
+router.post('/signin',(req, res)=>{
+    userController.signIn(req, res)
+});
 
 router.get('/getall',userController.getAllUsers);
 

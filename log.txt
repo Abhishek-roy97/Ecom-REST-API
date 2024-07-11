@@ -1,1 +1,6 @@
 {"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Abhishek1\",\"email\":\"abhi1@gmail.com\",\"password\":\"Abhi1_1204\",\"type\":\"seller2\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Abhishek1\",\"email\":\"abhi1@gmail.com\",\"password\":\"Abhi1_1204\",\"type\":\"seller2\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Abhishek2\",\"email\":\"abhi1@gmail.com\",\"password\":\"Abhi1_1204\",\"type\":\"seller3\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Abhishek3\",\"email\":\"abhi1@gmail.com\",\"password\":\"Abhi1_1204\",\"type\":\"seller4\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Abhishek4\",\"email\":\"abhi2@gmail.com\",\"password\":\"Abhi2_1204\",\"type\":\"seller5\"}","service":"request-logging"}

@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import swagger from 'swagger-ui-express';
 import cors from 'cors';
@@ -13,8 +15,12 @@ import apiDocs from './swagger.json' assert {type:'json'};
 import loggerMiddleware from './src/middlewares/logger.middleware.js';
 import { logger } from './src/middlewares/logger.middleware.js';
 import { ApplicationError } from './src/error-handler/applicationError.js';
+import { connectToMongoDB } from './src/config/mongodb.js';
 
 const server = express();
+
+// load all the enviroment variables in application
+
 
 //CORS policy configuration
 var corsOptions = {
@@ -62,4 +68,5 @@ server.use((req, res)=>{
 
 server.listen(3200, ()=>{
     console.log('Server is running at 3200');
+    connectToMongoDB();
 })
