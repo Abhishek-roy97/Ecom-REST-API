@@ -1,47 +1,93 @@
 import ProductModel from "./product.model.js";
+import ProductRepository from "./product.repository.js";
+import { ApplicationError } from "../../error-handler/applicationError.js";
+
+
 
 export default class ProductController{
-    getAllProducts(req, res){
-        const products = ProductModel.getAll();
-        res.status(200).send(products);
+    constructor(){
+        this.productRepository = new ProductRepository();
     }
-    addProduct(req, res){
-        const {name, price, sizes } = req.body;
+    async getAllProducts(req, res){
+        try {
+            const products = await this.productRepository.getAll();
+            res.status(200).send(products);  
+        } catch (err) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with db",500) 
+        }
         
-        const newProduct = {
+    }
+    async addProduct(req, res){
+        try {
+            const {name, price, sizes } = req.body;
+        
+        const newProduct = new ProductModel(
             name,
-            price: parseFloat(price),
-            sizes: sizes.split(','),
-            imageUrl: req.file.filename,
-        };
-        const createdRecord = ProductModel.add(newProduct);
+            null,
+             parseFloat(price),
+             req.file.filename,
+             null,
+             sizes.split(','),
+        );
+        const createdRecord = await this.productRepository.add(newProduct);
         res.status(201).send(createdRecord);
-    }
-    rateProduct(req, res){
-        console.log(req.query);
-        const userID = req.query.userID;
-        const productID = req.query.productID;
-        const rating = req.query.rating;
+        } catch (err) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with db",500)
+        }
         
-            ProductModel.rateProduct(userID, productID, rating);
+    }
+    async rateProduct(req, res){
+        try {
+            const userID = req.userID;
+        const productID = req.body.productID;
+        const rating = req.body.rating;
+        
+        const rateProduct = await this.productRepository.rate(userID, productID, rating);
        
         return res.status(200).send('Rating has been added');
-    }
-    getOneProduct(req, res){
-        const id = req.params.id;
-        const product = ProductModel.getById(id);
-        if(!product){
-            res.status(404).send('Product not found ');
-        }else{
-            return res.status(200).send(product);
+        } catch (err) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with db",500) 
         }
+        
     }
-    filterProducts(req, res){
+    async getOneProduct(req, res){
+        try {
+            const id = req.params.id;
+            const product = await this.productRepository.get(id);
+            if(!product){
+                res.status(404).send('Product not found ');
+            }else{
+                return res.status(200).send(product);
+            }  
+        } catch (err) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with db",500) 
+        }
+        
+    }
+    async filterProducts(req, res){
+       try {
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
         const category = req.query.category;
-        const result = ProductModel.filter(minPrice, maxPrice, category);
-        console.log(result)
+        const result = await this.productRepository.filter(minPrice, maxPrice, category);
+        // console.log(result)
         res.status(200).send(result);
+       } catch (err) {
+        console.log(err);
+            throw new ApplicationError("Something went wrong with db",500) 
+       }
+    }
+    async averagePrice(req, res, next){
+        try {
+            const result = await this.productRepository.averageProductPricePerCategory();
+            res.status(200).send(result);
+        } catch (err) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with db",500)   
+        }
     }
 };

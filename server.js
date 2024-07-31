@@ -1,10 +1,10 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import "./env.js"
 import express from 'express';
 import swagger from 'swagger-ui-express';
 import cors from 'cors';
 
 import bodyParser from 'body-parser';
+import OrderRouter from './src/features/order/order.routes.js'
 import ProductRouter from './src/features/product/product.routes.js';
 import UserRouter from './src/features/user/user.routes.js';
 import CartRouter from './src/features/cart/cartItem.routes.js';
@@ -44,6 +44,7 @@ server.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
 
 server.use(loggerMiddleware);
 
+server.use("/api/orders",jwtAuth, OrderRouter)
 server.use("/api/products",jwtAuth, ProductRouter);
 server.use('/api/user', UserRouter);
 server.use('/api/cartItems',jwtAuth, CartRouter);
