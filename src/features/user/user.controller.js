@@ -14,17 +14,17 @@ export default class UserController {
     const users = UserModel.allUser();
     res.status(201).send(users);
   }
-  async signUp(req, res) {
+  async signUp(req, res, next) {
     try {
       const { name, email, password, type } = req.body;
 
-      const hashedPassword = await bcrypt.hash(password, 12)
+      // const hashedPassword = await bcrypt.hash(password, 12)
 
-    const createUser = new UserModel(name, email, hashedPassword, type);
+    const createUser = new UserModel(name, email, password, type);
     await this.userRepository.signUp(createUser);
     res.status(201).send(createUser);
     } catch (err) {
-      throw new ApplicationError("Something went wrong", 500);
+      next(err);
     }
     
   }
@@ -59,5 +59,17 @@ export default class UserController {
       return res.status(400).send("Something went wrong");
     }
     
+  }
+  async resetPassword(req, res){
+    const { newPassword} = req.body;
+    const hashedPassword = await bcrypt.hash(newPassword, 12)
+    const userID = req.userID;
+    try {
+      await this.userRepository.resetPassword(userID, hashedPassword);
+      res.status(200).send("Password is updated");
+    } catch (err) {
+      console.log(err);
+      console.log("Error in Reset Password");
+    }
   }
 }

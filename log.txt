@@ -115,3 +115,35 @@
 {"level":"info","message":"/api/orders - {}","service":"request-logging"}
 {"level":"info","message":"/api/orders - {}","service":"request-logging"}
 {"level":"info","message":"/api/orders - {}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe12@gmail.com\",\"password\":\"Password_1204\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe12@gmail.com\",\"password\":\"Password_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"SyntaxError: Expected property name or '}' in JSON at position 7 - /api/user/resetpassword - {}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetpassword - {\"newPassword\":\"jhon1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetPassword - {\"newPassword\":\"jhon1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/resetPassword - {\"newPassword\":\"jhon1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe12@gmail.com\",\"password\":\"Pass_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe12@gmail.com\",\"password\":\"Pass_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe12@gmail.com\",\"password\":\"Pass_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_1204\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_120\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_120\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe14@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe15@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe15@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe15@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"ValidationError: password: Password should be between 8-12 charachetrs and have a apecial character - /api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe15@gmail.com\",\"password\":\"Password_20\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe.5@gmail.com\",\"password\":\"Pass@1234\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"product\":\"66935f368799be75319c86a7\",\"rating\":4}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"product\":\"6699d7a21cdccbcbca2a8fc0\",\"rating\":4}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productID\":\"6699d7a21cdccbcbca2a8fc0\",\"rating\":4}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"desc\":\"E-book reader by Amazon\",\"categories\":\"66b43f3129fe1696c3639949,66b43f3129fe1696c363994b\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"desc\":\"E-book reader by Amazon\",\"categories\":\"66b43f3129fe1696c3639949,66b43f3129fe1696c363994b\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes/ - {\"type\":\"Product\",\"id\":\"66b44e86aa64b287573c3c8b\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=66b44e86aa64b287573c3c8b&type=Product - {\"type\":\"Product\",\"id\":\"66b44e86aa64b287573c3c8b\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes/ - {\"type\":\"Product\",\"id\":\"6699d7a21cdccbcbca2a8fc0\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=6699d7a21cdccbcbca2a8fc0&type=Product - {\"type\":\"Product\",\"id\":\"66b44e86aa64b287573c3c8b\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=6699d7a21cdccbcbca2a8fc0&type=Product - {\"type\":\"Product\",\"id\":\"66b44e86aa64b287573c3c8b\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe.5@gmail.com\",\"password\":\"Pass@1234\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/user/signup - {\"name\":\"Jhon doe\",\"email\":\"jhondoe.5@gmail.com\",\"password\":\"Pass@1234\",\"type\":\"Seller\"}","service":"request-logging"}

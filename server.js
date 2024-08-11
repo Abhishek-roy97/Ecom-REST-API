@@ -8,6 +8,7 @@ import OrderRouter from './src/features/order/order.routes.js'
 import ProductRouter from './src/features/product/product.routes.js';
 import UserRouter from './src/features/user/user.routes.js';
 import CartRouter from './src/features/cart/cartItem.routes.js';
+import likeRouter from "./src/features/like/like.routes.js";
 import basicAuthorizer from './src/middlewares/basicAuth.middleware.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
 
@@ -16,6 +17,8 @@ import loggerMiddleware from './src/middlewares/logger.middleware.js';
 import { logger } from './src/middlewares/logger.middleware.js';
 import { ApplicationError } from './src/error-handler/applicationError.js';
 import { connectToMongoDB } from './src/config/mongodb.js';
+import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
+import mongoose from "mongoose";
 
 const server = express();
 
@@ -48,6 +51,7 @@ server.use("/api/orders",jwtAuth, OrderRouter)
 server.use("/api/products",jwtAuth, ProductRouter);
 server.use('/api/user', UserRouter);
 server.use('/api/cartItems',jwtAuth, CartRouter);
+server.use('/api/likes', jwtAuth, likeRouter);
 
 server.get('/', (req, res)=>{
     res.send('Welcom to Ecom API');
@@ -55,6 +59,9 @@ server.get('/', (req, res)=>{
 // Error handler middleware
 server.use((err, req, res, next)=>{
     console.log(err);
+    if(err instanceof mongoose.Error.ValidationError){
+        res.status(400).send(err.message);
+    }
     if(err instanceof ApplicationError){
         res.status(err.code).send(err.message);
     }
@@ -69,5 +76,6 @@ server.use((req, res)=>{
 
 server.listen(3200, ()=>{
     console.log('Server is running at 3200');
-    connectToMongoDB();
+    // connectToMongoDB();
+    connectUsingMongoose();
 })
